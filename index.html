@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Student Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h1 class="heading">Student Grade Calculator</h1>
+    <div class="row mainBlock">
+    <div class="container col-12 col-md-6">
+    <div class="left-side">
+        <h2 class="header zoom-in-out">Student <br/>Grade<br/> Calculator</h2>
+    </div>
+    <div class="right-side col-12 col-md-6">
+    <div class="subject-section">
+        <input type="text" name="English" class="input" placeholder="English" id="eng"/>
+    </div>
+    <div class="subject-section">
+        <input type="text" name="Physics" class="input" placeholder="Physics"  id="phy"/>
+    </div>
+    <div class="subject-section">
+        <input type="text" name="Maths" class="input" placeholder="Maths"  id="maths"/>
+    </div>
+    <div class="subject-section">
+        <input type="text" name="Science" class="input" placeholder="Science" id="sci"/>
+    </div>
+    
+    <input type="button" name="" value="Show Percentage" class="btn" onclick="calcy()" />
+     
+     <div class="showData">
+        <p id="showData"> </p>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<!-- Student Grade Calculator 
+ Each student has to enter respective subject marks
+ 1. Find Total
+ 2. Find Percentage
+ 3. Find Grade
+ 4. Check Pass or Fail
+ 5. Combined all and show output
+
+
+-->
+
+
+
+
+
+
+ <script>
+const calcy = ()=>
+{
+    let eng = document.getElementById('eng').value;
+    let phy = document.getElementById('phy').value;
+    let maths = document.getElementById('maths').value;
+    let sci = document.getElementById('sci').value;
+    let grades=""
+
+//  console.log(eng);   
+// total
+let  total = parseFloat(eng)+parseFloat(phy)+parseFloat(maths)+parseFloat(sci);
+alert(`Total is ${total}` );
+// Percentage
+let percentage = (parseFloat(total)/ 400)* 100;
+alert(`Percentage is ${percentage}`);
+// Grade
+if(percentage<=100 && percentage>=80)
+{
+   grades="A";
+}
+else if
+(percentage<=79 && percentage>=60)
+{
+grades="B";
+}
+else if
+(percentage<=59 && percentage>=40)
+{
+    grades="C";
+}
+else
+{
+    grades="F";
+}
+
+if(percentage>=39.5)
+{
+    document.getElementById('showData').innerHTML = 
+`Out of 400 Total is ${total} and Percentage is ${percentage}% with Garde ${grades}
+Congratulations You Are Pass. 😄`
+
+}
+else
+ {
+    document.getElementById('showData').innerHTML = 
+`Out of 400 Total is ${total} and Percentage is ${percentage}% with Garde ${grades} .
+Sorry You Are Fail. 😢`
+}
+// combine all
+// let output = "Total: "+total+"\n"+"Percentage: "+percentage+"\n"+"Grade: "+grades;
+// document.getElementById('showData').innerHTML = 
+// `Out of 400 Total is ${total} and percentage is ${percentage}% with Garde ${grades}`
+}
+
+ </script>
+
+
+
+
+
+</body>
+</html>
